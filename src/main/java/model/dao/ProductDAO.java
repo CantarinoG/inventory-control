@@ -29,10 +29,10 @@ public class ProductDAO extends DAO {
         return true;
     }
 
-    public Product findByPrimaryCode(int priCode) { //Returns the product with the specified primary code
+    public Product findById(int id) { //Returns the product with the specified id
 
         for (Product p : this.lstProduct) {
-            if (p.getPrimaryCode() == priCode) {
+            if (p.getId() == id) {
                 return p;
             }
         }
@@ -58,7 +58,7 @@ public class ProductDAO extends DAO {
         Product prod = (Product) obj;
         for (int i = 0; i < this.lstProduct.size(); i++) {
             Product p = this.lstProduct.get(i);
-            if (p.getPrimaryCode() == prod.getPrimaryCode()) {
+            if (p.getId() == prod.getId()) {
                 this.lstProduct.remove(i);
 
                 String texto = this.lstProductToCSV();
@@ -70,8 +70,8 @@ public class ProductDAO extends DAO {
         return false;
     }
 
-    public void update(int originalPriCode, Product newProduct) { //Update product with the original primary code to newProduct
-        Product originalProd = (Product) this.findByPrimaryCode(originalPriCode);
+    public void update(int originalId, Product newProduct) { //Update product with the original id to newProduct
+        Product originalProd = (Product) this.findById(originalId);
         if (originalProd == null) {
             throw new ProductException("Error - Product does not exist.");
         }

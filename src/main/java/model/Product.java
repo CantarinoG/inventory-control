@@ -2,7 +2,7 @@ package model;
 
 public class Product {
 
-    private int primaryCode;
+    private int id;
     private String name;
     private float cost;
     private float price;
@@ -11,7 +11,7 @@ public class Product {
     private String barCode;
 
     public Product() {
-        this.primaryCode = -1;
+        this.id = -1;
         this.name = " ";
         this.cost = 0;
         this.price = 0;
@@ -24,7 +24,7 @@ public class Product {
     public String toString() { //Returns a String containing all informations about the product
         String txt
                 = "---------- Product -----------\n";
-        txt += "Primary Code: " + this.primaryCode + "\n";
+        txt += "ID: " + this.id + "\n";
         txt += "Name: " + this.name + "\n";
         txt += "Cost: " + this.cost + "\n";
         txt += "Price: " + this.price + "\n";
@@ -36,7 +36,7 @@ public class Product {
     }
 
     public void copy(Product other) {
-        this.primaryCode = other.getPrimaryCode();
+        this.id = other.getId();
         this.name = other.getName();
         this.cost = other.getCost();
         this.price = other.getPrice();
@@ -50,13 +50,13 @@ public class Product {
     }
 
     public String attributeToCSV() {
-        return this.primaryCode + ";" + this.name + ";" + this.cost + ";" + this.price + ";" + this.quantity + ";" + this.unity + ";" + this.barCode + "\n";
+        return this.id + ";" + this.name + ";" + this.cost + ";" + this.price + ";" + this.quantity + ";" + this.unity + ";" + this.barCode + "\n";
     }
 
     public void CSVToAttribute(String csv) {
         String array[] = csv.split(";");
 
-        this.primaryCode = Integer.parseInt(array[0]);
+        this.id = Integer.parseInt(array[0]);
         this.name = array[1];
         this.cost = Float.parseFloat(array[2]);
         this.price = Float.parseFloat(array[3]);
@@ -65,8 +65,8 @@ public class Product {
         this.barCode = array[6];
     }
 
-    public int getPrimaryCode() {
-        return this.primaryCode;
+    public int getId() {
+        return this.id;
     }
 
     public String getName() {
@@ -93,8 +93,8 @@ public class Product {
         return this.barCode;
     }
 
-    public void setPrimaryCode(int priCode) {
-        this.primaryCode = priCode;
+    public void setId(int priCode) {
+        this.id = priCode;
     }
 
     public void setName(String name) {

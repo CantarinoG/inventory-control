@@ -13,32 +13,32 @@ public class ProductController {
         repository = new ProductDAO();
     }
 
-    public boolean registrateProduct(String primaryCode, String name, String cost, String price, String quantity, String unity, String barCode) {
-        Product newProduct = validation(primaryCode, name, cost, price, quantity, unity, barCode);
+    public boolean registrateProduct(String id, String name, String cost, String price, String quantity, String unity, String barCode) {
+        Product newProduct = validation(id, name, cost, price, quantity, unity, barCode);
 
-        if (repository.findByPrimaryCode(Integer.parseInt(primaryCode)) == null) {
+        if (repository.findById(Integer.parseInt(id)) == null) {
             return repository.save(newProduct);
         } else {
-            throw new ProductException("Error - There is a product with this primary code already!");
+            throw new ProductException("Error - There is a product with this id already!");
         }
     }
 
-    public void updateProduct(String originalPriCode, String primaryCode, String name, String cost, String price, String quantity, String unity, String barCode) {
+    public void updateProduct(String originalId, String id, String name, String cost, String price, String quantity, String unity, String barCode) {
 
-        Product newProduct = validation(primaryCode, name, cost, price, quantity, unity, barCode);
-        repository.update(Integer.parseInt(originalPriCode), newProduct);
+        Product newProduct = validation(id, name, cost, price, quantity, unity, barCode);
+        repository.update(Integer.parseInt(originalId), newProduct);
     }
 
-    public Product searchProduct(int primaryCode) {
-        return this.repository.findByPrimaryCode(primaryCode);
+    public Product searchProduct(int id) {
+        return this.repository.findById(id);
     }
 
     public List<Product> displayProducts() {
         return this.repository.findAll();
     }
 
-    public void deleteProduct(int priCode) {
-        Product prod = repository.findByPrimaryCode(priCode);
+    public void deleteProduct(int id) {
+        Product prod = repository.findById(id);
         if (prod != null) {
             repository.delete(prod);
         } else {
@@ -56,14 +56,14 @@ public class ProductController {
         return list;
     }
 
-    private Product validation(String primaryCode, String name, String cost, String price, String quantity, String unity, String barCode) {
+    private Product validation(String id, String name, String cost, String price, String quantity, String unity, String barCode) {
 
         Product p = new Product();
 
-        if (primaryCode.isEmpty()) {
-            throw new ProductException("Error - Empty field: 'Primary Code'.");
+        if (id.isEmpty()) {
+            throw new ProductException("Error - Empty field: 'Id'.");
         }
-        p.setPrimaryCode(Integer.parseInt(primaryCode));
+        p.setId(Integer.parseInt(id));
 
         if (name.isEmpty()) {
             throw new ProductException("Error - Empty field: 'Name'.");

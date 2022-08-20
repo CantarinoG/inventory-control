@@ -1,11 +1,11 @@
-package projetoescola;
+package inventory;
 
-import view.FrAluno;
+import view.FrProduct;
 
 public class Main {
 
     public static void main(String[] args) {
-        FrAluno tela = new FrAluno();
+        FrProduct tela = new FrProduct();
         tela.setVisible(true);
     }
 
