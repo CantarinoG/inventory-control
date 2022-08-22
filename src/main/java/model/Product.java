@@ -7,7 +7,7 @@ public class Product {
     private float cost;
     private float price;
     private float quantity;
-    private String unity;
+    private String unit;
     private String barCode;
 
     public Product() {
@@ -16,7 +16,7 @@ public class Product {
         this.cost = 0;
         this.price = 0;
         this.quantity = 0;
-        this.unity = "un";
+        this.unit = "un";
         this.barCode = "00000000000000";
     }
 
@@ -29,7 +29,7 @@ public class Product {
         txt += "Cost: " + this.cost + "\n";
         txt += "Price: " + this.price + "\n";
         txt += "Quantity: " + this.quantity + "\n";
-        txt += "Unity: " + this.unity + "\n";
+        txt += "Unit: " + this.unit + "\n";
         txt += "Bar Code: " + this.barCode + "\n"
                 + "-------------------------------------\n";
         return txt;
@@ -41,16 +41,16 @@ public class Product {
         this.cost = other.getCost();
         this.price = other.getPrice();
         this.quantity = other.getQuantity();
-        this.unity = other.getUnity();
+        this.unit = other.getUnit();
         this.barCode = other.getBarCode();
     }
 
     public String header() {
-        return "PrimaryCode;Name;Cost;Price;Quantity;Unity;BarCode\n";
+        return "PrimaryCode;Name;Cost;Price;Quantity;Unit;BarCode\n";
     }
 
     public String attributeToCSV() {
-        return this.id + ";" + this.name + ";" + this.cost + ";" + this.price + ";" + this.quantity + ";" + this.unity + ";" + this.barCode + "\n";
+        return this.id + ";" + this.name + ";" + this.cost + ";" + this.price + ";" + this.quantity + ";" + this.unit + ";" + this.barCode + "\n";
     }
 
     public void CSVToAttribute(String csv) {
@@ -61,7 +61,7 @@ public class Product {
         this.cost = Float.parseFloat(array[2]);
         this.price = Float.parseFloat(array[3]);
         this.quantity = Float.parseFloat(array[4]);
-        this.unity = array[5];
+        this.unit = array[5];
         this.barCode = array[6];
     }
 
@@ -85,8 +85,8 @@ public class Product {
         return this.quantity;
     }
 
-    public String getUnity() {
-        return this.unity;
+    public String getUnit() {
+        return this.unit;
     }
 
     public String getBarCode() {
@@ -113,8 +113,8 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public void setUnity(String unity) {
-        this.unity = unity;
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public void setBarCode(String barCode) {

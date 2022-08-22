@@ -13,8 +13,8 @@ public class ProductController {
         repository = new ProductDAO();
     }
 
-    public boolean registrateProduct(String id, String name, String cost, String price, String quantity, String unity, String barCode) {
-        Product newProduct = validation(id, name, cost, price, quantity, unity, barCode);
+    public boolean registrateProduct(String id, String name, String cost, String price, String quantity, String unit, String barCode) {
+        Product newProduct = validation(id, name, cost, price, quantity, unit, barCode);
 
         if (repository.findById(Integer.parseInt(id)) == null) {
             return repository.save(newProduct);
@@ -23,9 +23,9 @@ public class ProductController {
         }
     }
 
-    public void updateProduct(String originalId, String id, String name, String cost, String price, String quantity, String unity, String barCode) {
+    public void updateProduct(String originalId, String id, String name, String cost, String price, String quantity, String unit, String barCode) {
 
-        Product newProduct = validation(id, name, cost, price, quantity, unity, barCode);
+        Product newProduct = validation(id, name, cost, price, quantity, unit, barCode);
         repository.update(Integer.parseInt(originalId), newProduct);
     }
 
@@ -56,7 +56,7 @@ public class ProductController {
         return list;
     }
 
-    private Product validation(String id, String name, String cost, String price, String quantity, String unity, String barCode) {
+    private Product validation(String id, String name, String cost, String price, String quantity, String unit, String barCode) {
 
         Product p = new Product();
 
@@ -85,10 +85,10 @@ public class ProductController {
         }
         p.setQuantity(Float.parseFloat(quantity));
 
-        if (unity.isEmpty()) {
-            throw new ProductException("Error - Empty field: 'Unity'.");
+        if (unit.isEmpty()) {
+            throw new ProductException("Error - Empty field: 'Unit'.");
         }
-        p.setUnity(unity);
+        p.setUnit(unit);
 
         if (barCode.isEmpty()) {
             throw new ProductException("Error - Empty field: 'Bar Code'.");

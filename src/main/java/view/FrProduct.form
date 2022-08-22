@@ -74,16 +74,16 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="edtQuantity" min="-2" pref="32" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lblUnity" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblUnit" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="edtUnity" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="edtUnit" min="-2" pref="32" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblBarCode" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="edtBarCode" min="-2" pref="280" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="170" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="176" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -117,8 +117,8 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="edtQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblUnity" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="edtUnity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblUnit" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="edtUnit" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblBarCode" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="edtBarCode" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -254,12 +254,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="edtQuantity">
     </Component>
-    <Component class="javax.swing.JLabel" name="lblUnity">
+    <Component class="javax.swing.JLabel" name="lblUnit">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Unity:"/>
+        <Property name="text" type="java.lang.String" value="Unit:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="edtUnity">
+    <Component class="javax.swing.JTextField" name="edtUnit">
     </Component>
     <Component class="javax.swing.JLabel" name="lblBarCode">
       <Properties>

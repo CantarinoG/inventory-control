@@ -29,7 +29,7 @@ public class FrProduct extends javax.swing.JFrame {
         edtCost.setEnabled(flag);
         edtPrice.setEnabled(flag);
         edtQuantity.setEnabled(flag);
-        edtUnity.setEnabled(flag);
+        edtUnit.setEnabled(flag);
         edtBarCode.setEnabled(flag);
     }
 
@@ -39,7 +39,7 @@ public class FrProduct extends javax.swing.JFrame {
         edtCost.setText("");
         edtPrice.setText("");
         edtQuantity.setText("");
-        edtUnity.setText("");
+        edtUnit.setText("");
         edtBarCode.setText("");
     }
 
@@ -50,7 +50,7 @@ public class FrProduct extends javax.swing.JFrame {
         edtPrice.setText(p.getPrice() + "");
         edtName.setText(p.getName());
         edtQuantity.setText(p.getQuantity() + "");
-        edtUnity.setText(p.getUnity());
+        edtUnit.setText(p.getUnit());
     }
 
     @SuppressWarnings("unchecked")
@@ -75,8 +75,8 @@ public class FrProduct extends javax.swing.JFrame {
         edtList = new javax.swing.JTextArea();
         lblQuantity = new javax.swing.JLabel();
         edtQuantity = new javax.swing.JTextField();
-        lblUnity = new javax.swing.JLabel();
-        edtUnity = new javax.swing.JTextField();
+        lblUnit = new javax.swing.JLabel();
+        edtUnit = new javax.swing.JTextField();
         lblBarCode = new javax.swing.JLabel();
         edtName = new javax.swing.JTextField();
 
@@ -150,7 +150,7 @@ public class FrProduct extends javax.swing.JFrame {
 
         lblQuantity.setText("Quantity:");
 
-        lblUnity.setText("Unity:");
+        lblUnit.setText("Unit:");
 
         lblBarCode.setText("Bar Code:");
 
@@ -202,14 +202,14 @@ public class FrProduct extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(edtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblUnity)
+                                .addComponent(lblUnit)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(edtUnity, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(edtUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(lblBarCode)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(edtBarCode, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 170, Short.MAX_VALUE)))
+                        .addGap(0, 176, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -237,8 +237,8 @@ public class FrProduct extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblQuantity)
                     .addComponent(edtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUnity)
-                    .addComponent(edtUnity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUnit)
+                    .addComponent(edtUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblBarCode)
                     .addComponent(edtBarCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(94, 94, 94)
@@ -257,9 +257,9 @@ public class FrProduct extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         try {
             if (!EditingProductId.equals("-")) {
-                prodController.updateProduct(EditingProductId, edtID.getText(), edtName.getText(), edtCost.getText(), edtPrice.getText(), edtQuantity.getText(), edtUnity.getText(), edtBarCode.getText());
+                prodController.updateProduct(EditingProductId, edtID.getText(), edtName.getText(), edtCost.getText(), edtPrice.getText(), edtQuantity.getText(), edtUnit.getText(), edtBarCode.getText());
             } else {
-                prodController.registrateProduct(edtID.getText(), edtName.getText(), edtCost.getText(), edtPrice.getText(), edtQuantity.getText(), edtUnity.getText(), edtBarCode.getText());
+                prodController.registrateProduct(edtID.getText(), edtName.getText(), edtCost.getText(), edtPrice.getText(), edtQuantity.getText(), edtUnit.getText(), edtBarCode.getText());
             }
 
             edtList.setText(prodController.printProductList());
@@ -315,7 +315,7 @@ public class FrProduct extends javax.swing.JFrame {
     private javax.swing.JTextField edtName;
     private javax.swing.JTextField edtPrice;
     private javax.swing.JTextField edtQuantity;
-    private javax.swing.JTextField edtUnity;
+    private javax.swing.JTextField edtUnit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBarCode;
@@ -324,6 +324,6 @@ public class FrProduct extends javax.swing.JFrame {
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblQuantity;
-    private javax.swing.JLabel lblUnity;
+    private javax.swing.JLabel lblUnit;
     // End of variables declaration//GEN-END:variables
 }
