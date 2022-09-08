@@ -1,8 +1,11 @@
 package model.dao;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,6 +22,39 @@ public class ProductDAO extends DAO {
     public ProductDAO() {
         super("ProductsList.csv");
         this.lstProduct = new ArrayList<>();
+        createFile();
+    }
+
+    private void createFile() {
+        //Will create the file if it does not exist yet
+        File table = new File(this.pathFile);
+        try {
+            table.createNewFile();
+        } catch (IOException ex) {
+            System.out.println("Error! File was not created!");
+            Logger
+                    .getLogger(ProductDAO.class
+                            .getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //If the file is empty, the product header will be written in the file
+        File newFile = new File(this.pathFile);
+        if (newFile.length() == 0) {
+            FileWriter file = null;
+            try {
+                file = new FileWriter(this.pathFile);
+                PrintWriter saveFile = new PrintWriter(file);
+                saveFile.print("PrimaryCode;Name;Cost;Price;Quantity;Unit;BarCode\n");
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            } finally {
+                try {
+                    file.close();
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+        }
     }
 
     public boolean save(Product prod) {
@@ -121,13 +157,17 @@ public class ProductDAO extends DAO {
                 lista.add(p);
             }
             return lista;
+
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(FrProduct.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FrProduct.class
+                    .getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 f.close();
+
             } catch (IOException ex) {
-                Logger.getLogger(FrProduct.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FrProduct.class
+                        .getName()).log(Level.SEVERE, null, ex);
             }
         }
         return null;
